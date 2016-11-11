@@ -1,21 +1,40 @@
-var clickBoxOne = (function() {
-  var colors = ["red", "orange", "green"];
-    var index = 0;
-    return function() {
-    document.getElementById('boxOne').style.background = colors[index%3];
-      index++;
-    }
-})();
+// function Person(name, nationality, age) {
+//   this.name = name;
+//   this.nationality = nationality;
+//   this.age = age;
+// }
 
-var clickBoxTwo = (function() {
-  var colors = ["red", "orange", "green"];
-    var index = 0;
-    return function() {
-    document.getElementById('boxTwo').style.background = colors[index%3];
-      index++;
-    }
-})();
+// Person.prototype.secondNationality = function(purpleHippo) {
+//   this.secondNationality = purpleHippo;
+// };
 
+// var john = new Person("John Miller", "German", 23);
+// john.secondNationality("Argentinian");
+// console.log(john); 
+
+//-------------------------------- change color ----------------------------------
+
+
+// var clickBoxOne = (function() {
+//   var colors = ["red", "orange", "green"];
+//     var index = 0;
+//     return function() {
+//     document.getElementById('boxOne').style.background = colors[index%3];
+//       index++;
+//     }
+// })();
+
+// var clickBoxTwo = (function() {
+//   var colors = ["red", "orange", "green"];
+//     var index = 0;
+//     return function() {
+//     document.getElementById('boxTwo').style.background = colors[index%3];
+//       index++;
+//     }
+// })();
+
+
+//--------------------------------- counter ---------------------------------------
 
 // var clickBoxOne = (function() {
 //   var counter = 0;
@@ -33,7 +52,24 @@ var clickBoxTwo = (function() {
 //   }
 // })();
 
+function Account(firstName, lastName, openingBalance) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.balance = openingBalance;
+  this.status = "active";
+}
 
+Account.prototype.closeAccount = function(closeAccount) {
+  this.status = "Account closed!"
+  this.balance = 0;
+  console.log("Account closed; difference in the mail");
+};
+
+// var bank_account = new Account("Drizzy", "Dre", 10000);
+// bank_account.closeAccount(0);
+// console.log(bank_account);
+
+var accounts = [];
 
 function createAccount() {
   var firstName = document.getElementById('firstName');
