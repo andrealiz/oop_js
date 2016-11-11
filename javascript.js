@@ -1,18 +1,43 @@
-function Person(firstName, lastName) {
-  this.firstName = firstName;
-  this.lastName = lastName;
+class Mammal {
+  constructor(age) {
+    this.hair = true;
+    this.age = age;
+  }
 }
 
-function Account(firstName, lastName, openingBalance) {
-  Person.call(this, firstName, lastName)
-  this.balance = openingBalance;
-  this.status = "active";
+class Person extends Mammal {
+  constructor(name, nationality, age) {
+    super(age);
+    this.name = name;
+    this.nationality = nationality;
+  }
 }
 
-Account.prototype = new Account();
+Person.prototype.secondNationality = function(purpleHippo) {
+  this.secondNationality = purpleHippo;
+};
 
-var test = new Account("Tuna", "Sandwich", 10000)
-console.log(test);
+var john = new Person("John Miller", "German", 23);
+john.secondNationality("Argentinian");
+console.log(john.age); 
+
+// ------------------------------- account inheritance ---------------------------
+
+// function Person(firstName, lastName) {
+//   this.firstName = firstName;
+//   this.lastName = lastName;
+// }
+
+// function Account(firstName, lastName, openingBalance) {
+//   Person.call(this, firstName, lastName)
+//   this.balance = openingBalance;
+//   this.status = "active";
+// }
+
+// Account.prototype = new Account();
+
+// var test = new Account("Tuna", "Sandwich", 10000)
+// console.log(test);
 
 // ------------------------------ person inhertance -------------------------------
 
@@ -79,18 +104,18 @@ console.log(test);
 //   }
 // })();
 
-function Account(firstName, lastName, openingBalance) {
-  this.firstName = firstName;
-  this.lastName = lastName;
-  this.balance = openingBalance;
-  this.status = "active";
-}
+// function Account(firstName, lastName, openingBalance) {
+//   this.firstName = firstName;
+//   this.lastName = lastName;
+//   this.balance = openingBalance;
+//   this.status = "active";
+// }
 
-Account.prototype.closeAccount = function(closeAccount) {
-  this.status = "Account closed!"
-  this.balance = 0;
-  console.log("Account closed; difference in the mail");
-};
+// Account.prototype.closeAccount = function(closeAccount) {
+//   this.status = "Account closed!"
+//   this.balance = 0;
+//   console.log("Account closed; difference in the mail");
+// };
 
 // var bank_account = new Account("Drizzy", "Dre", 10000);
 // bank_account.closeAccount(0);
