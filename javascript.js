@@ -1,24 +1,43 @@
-function Mammal(age) {
-  this.hair = true;
-  this.blood = "warm";
-  this.age = age;
+function Person(firstName, lastName) {
+  this.firstName = firstName;
+  this.lastName = lastName;
 }
 
-function Person(name, nationality, age) {
-  Mammal.call(this, age)
-  this.name = name;
-  this.nationality = nationality;
+function Account(firstName, lastName, openingBalance) {
+  Person.call(this, firstName, lastName)
+  this.balance = openingBalance;
+  this.status = "active";
 }
 
-Person.prototype = new Mammal();
+Account.prototype = new Account();
 
-Person.prototype.secondNationality = function(purpleHippo) {
-  this.secondNationality = purpleHippo;
-};
+var test = new Account("Tuna", "Sandwich", 10000)
+console.log(test);
 
-var john = new Person("John Miller", "German", 23);
-john.secondNationality("Argentinian");
-console.log(john.age); 
+// ------------------------------ person inhertance -------------------------------
+
+
+// function Mammal(age) {
+//   this.hair = true;
+//   this.blood = "warm";
+//   this.age = age;
+// }
+
+// function Person(name, nationality, age) {
+//   Mammal.call(this, age)
+//   this.name = name;
+//   this.nationality = nationality;
+// }
+
+// Person.prototype = new Mammal();
+
+// Person.prototype.secondNationality = function(purpleHippo) {
+//   this.secondNationality = purpleHippo;
+// };
+
+// var john = new Person("John Miller", "German", 23);
+// john.secondNationality("Argentinian");
+// console.log(john.age); 
 
 //-------------------------------- change color ----------------------------------
 
