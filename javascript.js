@@ -1,16 +1,24 @@
-// function Person(name, nationality, age) {
-//   this.name = name;
-//   this.nationality = nationality;
-//   this.age = age;
-// }
+function Mammal(age) {
+  this.hair = true;
+  this.blood = "warm";
+  this.age = age;
+}
 
-// Person.prototype.secondNationality = function(purpleHippo) {
-//   this.secondNationality = purpleHippo;
-// };
+function Person(name, nationality, age) {
+  Mammal.call(this, age)
+  this.name = name;
+  this.nationality = nationality;
+}
 
-// var john = new Person("John Miller", "German", 23);
-// john.secondNationality("Argentinian");
-// console.log(john); 
+Person.prototype = new Mammal();
+
+Person.prototype.secondNationality = function(purpleHippo) {
+  this.secondNationality = purpleHippo;
+};
+
+var john = new Person("John Miller", "German", 23);
+john.secondNationality("Argentinian");
+console.log(john.age); 
 
 //-------------------------------- change color ----------------------------------
 
